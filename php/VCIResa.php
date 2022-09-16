@@ -15,18 +15,21 @@ $db=disconnectDb();
 ?>
 <main>
     <H1>Sélectionnez le type de film que vous recherchez : </H1>
-    <form action="VCIResa2.php" method="post">
-        <select style="display: block;margin: 0 auto;" name="selectionFilms">
-            <?php
+    <div class="text-center">
+        <form action="VCIResa2.php" method="post">
+            <select name="selectionFilms">
+                <?php
                 foreach ($results as $catFilm)
                     {?>
                 <option value="<?php echo $catFilm->CODE_TYPE_FILM ?>"> <?= $catFilm->LIB_TYPE_FILM ?></option>
-                    <?php 
+                <?php 
                     }?>
-        </select>
-        <br/>
-        <input style="display: block;margin: 0 auto;" type="submit" name="Submit" value="Séléctionnez">
-    </form>
+            </select>
+            <br />
+            <input class="bn632-hover bn26" type="submit" name="Submit" value="Séléctionnez">
+                </div>
+        </form>
 </main>
 <?php
+require "pied.php";
 ?>

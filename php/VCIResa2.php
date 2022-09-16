@@ -26,64 +26,60 @@ $results = $sqlResponse->fetchAll(5);
 $db=disconnectDb();
 ?>
 <main>
-    <h1>Liste des films de type 
+    <h1>Liste des films de type
         <?php
         echo $_POST["selectionFilms"];
         ?>
     </h1>
     <h3>Sélectionnez le film que vous désirez réserver</h3>
-        <table border="1" align="center" border-collapse="collapse">
-            <thead>
-                <tr>
-                    <th width="200">Titre de film</th>
-                    <th width="200">Son Année</th>
-                    <th width="200">Realisateur</th>
-                    <th width="200">Affiche</th>
-                </tr>
-            </thead>
-            <?php
+    <div class="row justify-content-center">
+        <div class="col-auto">
+            <table class="table table-striped table-dark">
+                <thead>
+                    <tr>
+                        <th>Titre de film</th>
+                        <th>Son Année</th>
+                        <th>Realisateur</th>
+                        <th>Affiche</th>
+                    </tr>
+                </thead>
+                <?php
                 foreach ($results as $films){
                     echo"<form method=GET action=VCIResa3.php?film=>";
             ?>
                 <tr>
                     <td>
                         <a href="VCIResa3.php?film=<?= $films->ID_FILM. "&typeF=" .$films->CODE_TYPE_FILM?>">
-                                <?= $films->TITRE_FILM ?>
+                            <?= $films->TITRE_FILM ?>
                         </a>
                     </td>
                     <td><?= $films->ANNEE_FILM ?></td>
                     <td><?= $films->NOM_STAR. " " .$films->PRENOM_STAR ?></td>
                     <td>
                         <a href="VCIResa3.php?ID_FILM=<?= $films->ID_FILM ?>">
-                            <img src="../pictures/FilmMiniatures/<?=$films->LIB_TYPE_FILM.'/'.$films->REF_IMAGE?>" alt="Affiche du film <?= $films->TITRE_FILM ?>">
+                            <img src="../pictures/FilmMiniatures/<?=$films->LIB_TYPE_FILM.'/'.$films->REF_IMAGE?>"
+                                alt="Affiche du film <?= $films->TITRE_FILM ?>">
                         </a>
-                     </td>
-                    </tr>
+                    </td>
+                </tr>
                 </form>
-            <?php 
+                <?php 
             }
             ?>
-        </table>
-
-<form method="post">
-    <input type="submit" name="retourF" value="Retour"> <input type="submit" name="retourA" value="Annulez">
-</form>
-<?php
+            </table>
+        </div>
+    </div>
+    <form method="post">
+        <div class="text-center">
+            <button class="bn632-hover bn26"  onclick="history.go(-1)" name="retourF">Retour</button>
+            <input class="bn632-hover bn26"  name="retourA" value="Annulez">
+        </div>
+    </form>
+    <?php
       
-      if(array_key_exists("retourF", $_POST)) {
-        retourFilm();
-      }
-      else if(array_key_exists("retourA", $_POST)) {
-        retourAccueil();
-      }
-
-      function retourFilm()
-      {
-      header("Location: Resa.php");
-      }
-      function retourAccueil()
-      {
-      header("Location: VCIAccueil.php");
+      if(array_key_exists("retourA", $_POST)) {
+        header("Location: VCIAccueil.php");
       }
 ?>
 </main>
+<?php require "pied.php";?>

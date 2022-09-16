@@ -1,64 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" src="../js/java.js"></script>
+    <link href="../css/effets.css" rel="stylesheet">
     <link href="../css/VCIMenu.css" rel="stylesheet">
     <title>Bienvenue au vidéo club</title>
 </head>
+
 <body>
-<div id="background"></div>
     <header>
-        <div id="imagegauche">
-            <a href="VCIAccueil.php"><img src="../pictures/DesignVideoClub/VCLogo.gif"></a>
-        </div>
-        <div id="texte">
-            <h1>Vidéo-Club</h1><br>
-            <h3>... et si on se faisait une toile , à la maison?</h3>
-        </div>
-        <div id="datedroite">
-            <p id=date1></p>
-        <script>
-            var date = new Date();
-            var options = {weekday: "long", year: "numeric", month: "long", day: "2-digit"};
-            document.getElementById("date1").innerHTML = date.toLocaleDateString("fr-FR", options);
-        </script>
-        </div>
-        <div id="Admin">
-            <span>Admin</span>
-        </div>
-        <div id="sous-Admin">
-            <form method="post" action="VCIAdmin.php">
-                    <label for="inputLogin">Login :</label>
-                    <input type="text" id="inputLogin" name="Nom_Admin">
-                    <br/>
-                    <label for="inputPassword">Password :</label>
-                    <input type="password"  id="inputPassword" name="Pass_Admin">
-                    <br/>
-                    <button type="submit">Entrer</button>
-            </form>
-        </div>
-        <script>
-        function AfficherSousMenu() {
-            if(document.getElementById("sous-Admin").style.visibility == "hidden"){
-                document.getElementById("sous-Admin").style.visibility = "visible";
-            }
-            else
-            {
-                document.getElementById("sous-Admin").style.visibility = "hidden";
-            }
-        }
-        window.addEventListener('load', function () {
-        document.getElementById("Admin").addEventListener("click", AfficherSousMenu);
-        });
-        </script>
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark shadow-sm">
+            <div class="container">
+                <a href="VCIAccueil.php" class="navbar-brand">
+                    <img src="../pictures/DesignVideoClub/VCLogo.gif" width="45" alt="" class="d-inline-block align-middle mr-2">
+                    <span class="text-uppercase font-weight-bold">Video-Club</span>
+                </a>
+                <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#n_bar" aria-controls="navbarNavAltMarkup" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="n_bar">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="VCIResa.php">Reservez un film</a></li>
+                        </hr>
+                        <li class="nav-item"><a class="nav-link" href="VCIConstr.php">Page en construction</a></li>
+                        <li class="nav-item"><a class="nav-link" href="VCIConstr.php">Page en construction</a></li>
+                        <li class="nav-item"><a class="nav-link" href="VCIConstr.php">Page en construction</a></li>
+                    </ul>
+                </div>
+                <div id="Admin">
+                    <button type="button" class="btn btn-dark">Admin</button>
+                </div>
+            </div>
     </header>
-    <nav>
-        <p><a href="VCIResa.php">Réserver un film</a></p>
-        <p><a href="VCIConstr.php">Les Boutiques VC</a></p>
-        <p><a href="VCIConstr.php">Actualités</a></p>
-        <p><a href="VCIResa.php">Nous contacter</a></p>
-    </nav>
+    <p class="d-flex flex-row" id=date1></p>
+    <div id="sous-Admin" class="d-flex flex-row-reverse">
+        <form method="post" action="VCIAdmin.php">
+            <div d-flex flex-row-reverse>
+                <label for="inputLogin">Login :</label>
+                <input type="text" id="inputLogin" name="Nom_Admin">
+            </div>
+            <div d-flex flex-row-reverse>
+                <label for="inputPassword">Password :</label>
+                <input type="password" id="inputPassword" name="Pass_Admin">
+            </div>
+            <div class="d-flex justify-content-center">
+            <button type="submit" class="bn632-hover bn26">Connexion</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        var date = new Date();
+        var options = {
+            weekday: "long",
+            year: "numeric",
+            month: "long",
+            day: "2-digit"
+        };
+        document.getElementById("date1").innerHTML = date.toLocaleDateString("fr-FR", options);
+    </script>
 </body>
+
 </html>

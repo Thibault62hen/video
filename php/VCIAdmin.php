@@ -49,5 +49,6 @@ if($results == 1){
 else
 {
     header('Location: VCIAccueil.php');
+    echo"identifiants incorrect";
 }
 ?>
