@@ -51,19 +51,19 @@ if (session_status() == PHP_SESSION_NONE) {
                         <li class="nav-item"><a class="nav-link"
                                 href="../controleurs/VCILocation_controleur.php">Location en cours</a></li>
                         <form method="post" action="">
-                            <li id="Dcnx2" class="nav-item"><input type="submit" id="btnDeconnexion" name="btnDcnx"
+                            <li id="Dcnx2" class="nav-item"><input type="submit" id="btnDeconnexion" name="disconnectBtn"
                                     class="bn632-hover bn26" value="Deconnexion"></li>
                         </form>
                     </ul>
                 </div>
                 <div id="Dcnx">
                     <form method="post" action="">
-                        <input type="submit" id="btnDeconnexion" name="btnDcnx" class="bn632-hover bn26 btnConnexion"
+                        <input type="submit" id="btnDeconnexion" name="disconnectBtn" class="bn632-hover bn26 btnConnexion"
                             value="Deconnexion">
                     </form>
                 </div>
                 <?php
-                if(isset($_POST["btnDcnx"]))
+                if(isset($_POST["disconnectBtn"]))
                 {
                     session_unset();
                     session_destroy();

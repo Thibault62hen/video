@@ -1,7 +1,8 @@
 <?php
 require("../src/VCIContact.php");
 require("../template/VCIContact_vue.php");
-if(isset($_POST["formContact"]))
+
+if($_SERVER["REQUEST_METHOD"] == "POST")
 {
     $dataMail["contactEmail"] = $_POST["contactEmail"];
     $dataMail["contactPhone"] = $_POST["contactPhone"];

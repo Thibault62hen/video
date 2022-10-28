@@ -11,9 +11,9 @@ function getLocation()
 }
 function deleteLocation($dataDelLocation){
         //retriveing film id currrently located with the associative array $dataDelLocation in $locationID
-        $locationID = $dataDelLocation["supprimerLocation"];
+       // $locationID = $dataDelLocation["supprimerLocation"];
         //delete sql request with the correct located film id
-        $requeteDeleteLocation = "DELETE FROM LOCATION WHERE ID_FILM = $locationID";
+        $requeteDeleteLocation = "DELETE FROM LOCATION WHERE ID_FILM = $dataDelLocation";
         $results_deleteLocation = ConnectDb2($requeteDeleteLocation, true);
         header("refresh:0;VCILocation_controleur.php");
 }

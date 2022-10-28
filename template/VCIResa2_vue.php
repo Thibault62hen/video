@@ -7,16 +7,17 @@ require("head.php");
         echo $_POST["selectionFilms"];
         ?>
 </h1>
-<h3>Sélectionnez le film que vous désirez réserver</h3>
 <div class="justify-content-center col-lg-6 mx-auto">
     <div class="col-auto">
         <?php
+            //there is no return from the slected category
             if(!$resultsFilm){
                  echo "<h2>Aucun films correspondants<h2>";
             }
             else{
             ?>
-        <table class="table table-striped table-dark">
+            <h3>Sélectionnez le film que vous désirez réserver</h3>
+            <table class="table table-bordered table-dark table-hover">
             <thead>
                 <tr>
                     <th>Titre de film</th>

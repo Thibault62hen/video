@@ -15,7 +15,7 @@ require("head.php");
 </div>
 
 <br />
-<div class="container-fluid d-flex wrap">
+<div class="container-fluid d-flex wrap" id="catalogue">
 <div class="row justify-content-center">
     <?php
     foreach($requete_filmACT as $valueACT){

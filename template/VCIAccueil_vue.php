@@ -36,19 +36,7 @@ require("head.php");
         </div>
     </div>
 </div>
-<!--
-<form method="post" action="">
-    <input type="text" name="testsanitize2">
-    <input type="submit" name="testsanitize">
-</form>
-</main>
-!-->
 <?php
-/*
-if(isset($_POST["testsanitize"]))
-{
-    var_dump(sanitize($_POST["testsanitize2"])); 
-}
-*/
+
 require("footer.php");
 ?>

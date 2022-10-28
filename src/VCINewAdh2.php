@@ -29,6 +29,7 @@ function insertNewAdh($dataInsert2)
         $validationCP = false;
         $erreur = true;
         $erreur2 = true;
+        //store user new information
         $newNom = $dataInsert2["newNom"];
         $newPrenom = $dataInsert2["newPrenom"];
         $newAdresse = $dataInsert2["newAdresse"];

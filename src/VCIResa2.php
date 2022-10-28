@@ -2,6 +2,7 @@
 require_once("config.php");
 require_once("database.php");
 $idCatFilm="";
+//retrieving all films info from the categorie selected previously and we display it in a table
 function getFilm()
 {
 $idCatFilm = sanitize($_POST["selectionFilms"]);

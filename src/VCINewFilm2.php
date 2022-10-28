@@ -16,7 +16,7 @@ function deleteFilm($dataDel){
         $requeteDelete = "DELETE FROM FILM WHERE ID_FILM = $delFilm";
         $results_delete = ConnectDb2($requeteDelete, true);
         echo "<h3 class='InfoValidation'>Film supprimé<h3>";
-        header("refresh:2;VCINewFilm_controleur.php");
+        header("refresh:2;VCINewFilm_controleur.php");   
     }
 }
 function insertNewFilm($dataInsert)
@@ -26,14 +26,26 @@ function insertNewFilm($dataInsert)
         $validationDate = false;
         $erreur = true;
         $erreur2 = true;
+
+        //store new film information
         $newTitre = $dataInsert["newTitre"];
         $typeFilm = $dataInsert["typeFilm"];
         $nomReal = $dataInsert["nomReal"];
         $newFilmDate = $dataInsert["newFilmDate"];
         $newIMG = $dataInsert["newIMG"];
         $newResume = $dataInsert["newResume"];
+        $newYTLink = $dataInsert["newYTLink"];
+
+
+        $currentDirMiniature = getcwd();
+        $uploadDirMiniature = "/pictures/FilmMiniatures/'".$typeFilm."' '/' ";
+        $currentDirMFull = getcwd();
+        $uploadDirFull = "/pictures/FilmAffiches/'".$typeFilm."' '/' ";
+
+      //  $uploadPathMiniature = $currentDirMiniature . $uploadDirMiniature . $fileName; 
+       // $uploadPathFull = $currentDirMFull . $uploadDirFull . basename($fileName); 
         //if one or every input are empty $validationChamps stay false
-        if(empty($newTitre) || empty($newFilmDate) || empty($newIMG) || empty($newResume)){
+        if(empty($newTitre) || empty($newFilmDate) || empty($newIMG) || empty($newResume)|| empty($newYTLink)){
             $validationChamps = false;
         }
         else{
@@ -68,12 +80,20 @@ function insertNewFilm($dataInsert)
                 //if everything is correct we process to add the new film into the database
                 if($erreur2 == false){
                     $requete_insertionFilm = "INSERT INTO film 
-                    (CODE_TYPE_FILM, ID_REALIS, TITRE_FILM, ANNEE_FILM, REF_IMAGE, RESUME) 
-                    VALUES ('".$typeFilm."', '".$nomReal."', '".$newTitre."', '".$newFilmDate."', '".$newIMG."', '".$newResume."')";
+                    (CODE_TYPE_FILM, ID_REALIS, TITRE_FILM, ANNEE_FILM, REF_IMAGE, RESUME, YT_LINK) 
+                    VALUES ('".$typeFilm."', '".$nomReal."', '".$newTitre."', '".$newFilmDate."', '".$newIMG."', '".$newResume."', '".$newYTLink."')";
                     $results_insertionFilm = ConnectDb2($requete_insertionFilm, true);
                     echo "<h3 class='InfoValidation'>$newTitre Enregistrées avec succès!<h3>";
                     header("refresh:2;VCINewFilm_controleur.php");
                 }
         }
+}
+function insertNewReal($dataInsertReal){
+    $newRealn = $dataInsertReal["newRealn"];
+    $newRealp = $dataInsertReal["newRealp"];
+    $requete_insertionReal = "INSERT INTO STAR (NOM_STAR, PRENOM_STAR) VALUES ('".$newRealn."', '".$newRealp."')";
+    $results_insertionReal = ConnectDb2($requete_insertionReal, true);
+    header("refresh:2;VCINewFilm_controleur.php");
+    echo "<h3 class='InfoValidation'><h3>";
 }
 ?>

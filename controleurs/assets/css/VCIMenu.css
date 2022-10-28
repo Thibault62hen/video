@@ -14,7 +14,7 @@ background: linear-gradient(70deg, #0267aa, #012872, #012872);
 */
 body {
   font-family: 'Ubuntu', sans-serif;
-  background: #01225f;
+  background: linear-gradient(70deg, #0267aa, #012872, #000000);
   color: #514B64;
   min-height: 100vh;
   font-size: 18px;
@@ -22,6 +22,7 @@ body {
   margin: 0;
   padding: 0;
 }
+
 .carousel-item{
   height: 100%;
 }
@@ -399,4 +400,85 @@ section{
 textarea{
   width: 45%;
   height: 150px;
+}
+.InputStyle2{
+  padding: 13px 20px;
+  height: 35px;
+  width: 60%;
+  font-weight: 500;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0.5px;
+  outline: none;
+  color: #c4c3ca;
+  background-color: #1f2029;
+  border: none;
+  -webkit-transition: all 200ms linear;
+  transition: all 200ms linear;
+  box-shadow: 0 4px 8px 0 rgba(21,21,21,.2);
+}
+.dropdownInput{
+  height: 40px;
+}
+.dropdownInput2{
+  height: 40px;
+  width: 30%;
+  text-align: center;
+}
+.InputStyle2:focus,
+.InputStyle2:active {
+  border: none;
+  outline: none;
+  box-shadow: 0 4px 8px 0 rgba(21,21,21,.2);
+}
+.InputStyle2::-moz-placeholder  {
+  color: #c4c3ca;
+  opacity: 0.7;
+  -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+.InputStyle2::-webkit-input-placeholder  {
+  color: #c4c3ca;
+  opacity: 0.7;
+  -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+.InputStyle2:focus::-moz-placeholder  {
+  opacity: 0;
+  -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+.InputStyle2:focus::-webkit-input-placeholder  {
+  opacity: 0;
+  -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+.InputStyle2:-webkit-autofill,
+.InputStyle2:-webkit-autofill:hover, 
+.InputStyle2:-webkit-autofill:focus, 
+.InputStyle2:-webkit-autofill:active{
+    -webkit-box-shadow: 0 4px 8px 30px #1f2029 inset !important;
+}
+.InputStyle2:-webkit-autofill{
+  -webkit-text-fill-color: #c4c3ca!important;
+}
+.table thead th {
+    border: none;
+    padding: 20px 30px;
+    font-size: 14px;
+    color: #fff;
+    border-bottom: 4px solid #2b3035; 
+}
+.table tbody tr {
+    margin-bottom: 10px; 
+}
+.table tbody th, .table tbody td {
+    border: none;
+    padding: 20px 30px;
+    border-bottom: 3px solid #2b3035;
+    font-size: 14px; 
+}
+.inputLocation:focus {
+  box-shadow: 0px 0px 0px 0px rgba(249, 249, 250, 0);
 }

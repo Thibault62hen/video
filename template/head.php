@@ -60,7 +60,7 @@ if (session_status() == PHP_SESSION_NONE) {
                         if($_SESSION["role"]  == "admin"){
                         ?>
                         <form method="post" action="VCIMenuAdmin_controleur.php">
-                            <li id="Dcnx2" class="nav-item"><input type="submit" id="btnDeconnexion" name="btnAdminP"
+                            <li id="Dcnx2" class="nav-item"><input type="submit" id="btnDeconnexion" name="disconnectBtn"
                                     class="bn632-hover bn26" value="Panel Admin"></li>
                         </form>
                         <?php

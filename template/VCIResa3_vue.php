@@ -20,6 +20,7 @@ require("head.php");
                         <?=htmlspecialchars($donnees_infofilm2["NOM_STAR"]. " " . $donnees_infofilm2["PRENOM_STAR"])?>
                     </p>
                     <?php
+                    //there is no return from the table location so the film is available
                     if(!$checkFilmA){
                     ?>
                     <p>Disponibilité :   <i class="fa-solid fa-check InfoValidation"></i></p>
@@ -41,23 +42,20 @@ require("head.php");
         name="ValidationAdherent">
         <h3>Veuillez saisir vos coordonnées:</h3>
         <?php
+        //there is no return from the table location so the film is available
         if(!$checkFilmA){
         ?>
-        <label class="labelForm">Nom : </label>
-        <input class="inputForm inputForm2" name="nomADHERENT" type="text" required="required"></input>
+        <input class="InputStyle2" placeholder="nom adherent" name="nomADHERENT" type="text" required="required"></input>
         </br>
-        <label class="labelForm">N Adhérent : </label>
-        <input class="inputForm inputForm2" name="noADHERENT" type="text" required="required"></input>
+        <input class="InputStyle2" placeholder="numéro adherent" name="noADHERENT" type="text" required="required"></input>
         </br>
         <?php
         }
         else{
         ?>
-        <label class="labelForm">Nom : </label>
-        <input class="inputForm inputForm2" name="nomADHERENT" type="text" disabled></input>
+        <input class="InputStyle2" placeholder="nom adherent"  name="nomADHERENT" type="text" disabled></input>
         </br>
-        <label class="labelForm">N Adhérent : </label>
-        <input class="inputForm inputForm2" name="noADHERENT" type="text" disabled></input>
+        <input class="InputStyle2" placeholder="numéro ahderent"  name="noADHERENT" type="text" disabled></input>
         </br>
         <?php
         }
