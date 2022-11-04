@@ -10,19 +10,19 @@ function showSelectedFilmIMG($dataFilm){
     $recupfilm2 = $donnees_infofilm["TITRE_FILM"];
     if($dataFilm["typeF"] == "ACT")
     {
-        $resultsIMG = "<img src=../controleurs/assets/pictures/FilmMiniatures/ACT/". $donnees_infofilm["REF_IMAGE"]. ">";
+        $resultsIMG = "<img class=imgMini src=../controleurs/assets/pictures/FilmMiniatures/ACT/". $donnees_infofilm["REF_IMAGE"]. ">";
     }
     else if($dataFilm["typeF"]  == "COM")
     {
-        $resultsIMG = "<img src=../controleurs/assets/pictures/FilmMiniatures/COM/". $donnees_infofilm["REF_IMAGE"]. ">";
+        $resultsIMG = "<img class=imgMini src=../controleurs/assets/pictures/FilmMiniatures/COM/". $donnees_infofilm["REF_IMAGE"]. ">";
     }
     else if($dataFilm["typeF"]  == "ANI")
     {
-        $resultsIMG = "<img src=../controleurs/assets/pictures/FilmMiniatures/ANI/". $donnees_infofilm["REF_IMAGE"]. ">";
+        $resultsIMG = "<img class=imgMini src=../controleurs/assets/pictures/FilmMiniatures/ANI/". $donnees_infofilm["REF_IMAGE"]. ">";
     }
     else if($dataFilm["typeF"]  == "HOR")
     {
-        $resultsIMG = "<img src=../controleurs/assets/pictures/FilmMiniatures/HOR/". $donnees_infofilm["REF_IMAGE"]. ">";
+        $resultsIMG = "<img class=imgMini src=../controleurs/assets/pictures/FilmMiniatures/HOR/". $donnees_infofilm["REF_IMAGE"]. ">";
     }
     return $resultsIMG;
 }

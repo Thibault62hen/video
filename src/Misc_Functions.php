@@ -15,4 +15,18 @@ function sanitize($input) {
   }
   return $output;
 }
+function checkImgType($fileName)
+{
+  $imgType = false;
+  $allowedfileExtensions = array("jpg", "png", "gif", "bmp");
+  for($a = 0; $a < count($allowedfileExtensions); $a++){
+	if(pathinfo($fileName, PATHINFO_EXTENSION) == $allowedfileExtensions[$a]){
+    $imgType = true;
+    return true;
+  }
+}
+  if(!$imgType == false){
+    return false;
+  }
+}
 ?>

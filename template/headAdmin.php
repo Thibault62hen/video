@@ -22,7 +22,7 @@ if (session_status() == PHP_SESSION_NONE) {
     <link href="../controleurs/assets/css/formConnexion.css" rel="stylesheet">
     <link href="../controleurs/assets/css/effets.css" rel="stylesheet">
     <link href="../controleurs/assets/css/VCIMenu.css" rel="stylesheet">
-    <title><?=$title?></title>
+    <title><?= $title?></title>
 </head>
 
 <body>
@@ -30,7 +30,7 @@ if (session_status() == PHP_SESSION_NONE) {
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-md">
             <div class="container-fluid containerNav">
                 <a href="../controleurs/VCIAccueil_controleur.php" class="navbar-brand">
-                    <img src="../controleurs/assets/pictures/DesignVideoClub/VCLogo.gif" width="45" alt="LogoAccueil">
+                    <img id="logoA" src="../controleurs/assets/pictures/DesignVideoClub/VCLogo.gif" width="45" alt="LogoAccueil">
                     <span class="sign">
                         <span class="fast-flicker">V</span>ideo-<span class="flicker">Cl</span>ub
                     </span>
@@ -76,3 +76,4 @@ if (session_status() == PHP_SESSION_NONE) {
     </header>
     <main>
         <p class="d-flex flex-row" id=date1></p>
+        <a href="../controleurs/VCIMenuAdmin_controleur.php"><h5  id="backAdm" class="d-flex flex-row">< Retour accueil admin</h5></a>

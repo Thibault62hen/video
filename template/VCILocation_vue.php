@@ -5,8 +5,8 @@ require("headAdmin.php");
 <h3>Location en cours</h3>
 <div class="justify-content-center col-lg-6 mx-auto">
     <div class="col-auto">
-        <table class="table table-bordered table-dark table-hover">
-            <thead>
+    <table class="table table-bordered table-dark table-hover">
+        <thead>
                 <tr>
                     <th>Adherent</th>
                     <th>Films</th>

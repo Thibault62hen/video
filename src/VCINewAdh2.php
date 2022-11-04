@@ -9,7 +9,6 @@ function deleteAdh($dataDel2){
     //if the selected user have reserved film we display an error message and refresh to the previous page
     if($results_CheckAdh){
         echo "<h3 class='InfoErreur'>Impossible, Une location existe pour cet adherent<h3>";
-        header("refresh:3;VCINewAdh_controleur.php");
     }
     //user doesn't have any reserved film so we can delete him and refresh to the previous page
     else{
@@ -19,7 +18,6 @@ function deleteAdh($dataDel2){
         $requeteDelete2 = "DELETE FROM ADHERENT WHERE NUM_ADHERENT = $delAdh";
         $results_delete2 = ConnectDb2($requeteDelete2, true);
         echo "<h3 class='InfoValidation'>L'adherent $nomAdh[0] a été supprimé<h3>";
-        header("refresh:2;VCINewAdh_controleur.php");
     }
 }
 function insertNewAdh($dataInsert2)

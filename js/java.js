@@ -27,7 +27,7 @@ window.addEventListener('load', function() {
     //back connexion button section
     document.getElementById("btnRetourCnx").addEventListener("click",function(){
     document.getElementById("sous-Admin").style.display = "none";
-    if (window.location.toString().includes("Accueil")) {
+    if (window.location.toString().includes("Index")) {
     document.getElementById("carouselExampleControls").style.display = "block";
     }
     if (window.location.toString().includes("Contact")) {
@@ -93,7 +93,7 @@ function CPass()
 function AfficherSousMenu() {
     var sAdmin = document.getElementById("sous-Admin");
     sAdmin.style.setProperty("display", "none", "important");
-    if (window.location.toString().includes("Accueil")) {
+    if (window.location.toString().includes("Index")) {
         var sCarousel = document.getElementById("carouselExampleControls");
         sCarousel.style.setProperty("display", "none", "important");
     }
@@ -107,7 +107,7 @@ function AfficherSousMenu() {
     }
     if (sAdmin.style.display == "none") {
         sAdmin.style.setProperty("display", "flex", "important");
-        if (window.location.toString().includes("Accueil")) {
+        if (window.location.toString().includes("Index")) {
             sCarousel.style.setProperty("display", "none", "important");
         }
         if (window.location.toString().includes("Contact")) {
@@ -119,8 +119,8 @@ function AfficherSousMenu() {
         }
         else{
         sAdmin.style.setProperty("display", "none", "important");
-            if (window.location.href == "VCIAccueil.php") {
-            sCarousel.style.setProperty("display", "block", "important");
+            if (window.location.toString().includes("VCIAccueil")) {
+            sCarousel.style.setProperty("display", "flex", "important");
             }
             if (window.location.toString().includes("Contact")){
                 sContact.style.setProperty("display", "flex", "important");

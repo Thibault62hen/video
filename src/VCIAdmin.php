@@ -12,6 +12,9 @@ $passAdmin= sanitize($_POST["Pass_Admin"]);
 
 $requeteAdmin = "SELECT LOGIN_ADMIN, PASS_ADMIN FROM ADMIN WHERE LOGIN_ADMIN = '".$loginAdmin."' AND PASS_ADMIN = '".$passAdmin."'";
 $dataLogin = connectDb2($requeteAdmin, true);
+
+$requeteAdmin2 = "SELECT LOGIN_ADMIN FROM ADMIN WHERE LOGIN_ADMIN = '".$loginAdmin."'";
+$dataLogin2 = connectDb2($requeteAdmin2, false);
 ?>
 
 <?php 
@@ -19,6 +22,7 @@ $dataLogin = connectDb2($requeteAdmin, true);
 if($dataLogin || $_SESSION["role"] == "admin"){
     header("Location: ../controleurs/VCIMenuAdmin_controleur.php");
     $_SESSION["role"] = "admin";
+    $_SESSION["admin"] = $dataLogin2;
 }
 //admin pass are invalid we set the session role to "none" and redirect to the homepage
 else
@@ -26,4 +30,5 @@ else
     $_SESSION["role"] = "none";
     header("Location: ../controleurs/VCIAccueil_controleur.php");
 }
+
 ?>

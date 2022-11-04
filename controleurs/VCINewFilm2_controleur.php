@@ -7,12 +7,12 @@ if($_SESSION["role"] == "admin"){
 //new film post
 if (isset($_POST["nouveauFilm"])){
     require("../src/VCINewFilm2.php");
-    $fileName = basename($_FILES["newIMG"]["name"]);
     $dataInsert["newTitre"] = sanitize($_POST["newTitre"]);
     $dataInsert["typeFilm"] = sanitize($_POST["typeFilm"]);
     $dataInsert["nomReal"] = sanitize($_POST["nomReal"]);
     $dataInsert["newFilmDate"] = sanitize($_POST["newFilmDate"]);
-    $dataInsert["newIMG"] = sanitize($_POST["newIMG"]);
+    $dataInsert["newMiniatureImg"] = sanitize($_FILES["newMiniImg"]);
+    $dataInsert["newCoverImg"] = sanitize($_FILES["newCoverImg"]);
     $dataInsert["newResume"] = sanitize($_POST["newResume"]);
     $dataInsert["newYTLink"] = sanitize($_POST["newYTLink"]);
     //adding a new film with with post info passed to $dataInsert
@@ -32,7 +32,8 @@ if (isset($_POST["editFilm"])){
     $dataEdit["typeFilmEdit"] = sanitize($_POST["typeFilmEdit"]);
     $dataEdit["nomRealEdit"] = sanitize($_POST["nomRealEdit"]);
     $dataEdit["filmdateEdit"] = sanitize($_POST["filmdateEdit"]);
-    $dataEdit["imgEdit"] = sanitize($_POST["imgEdit"]);
+    $dataEdit["imgEditMini"] = sanitize($_FILES["imgEditMini"]);
+    $dataEdit["imgEditCover"] = sanitize($_FILES["imgEditCover"]);
     $dataEdit["resumeEdit"] = sanitize($_POST["resumeEdit"]);
     $dataEdit["ytlinkEdit"] = sanitize($_POST["ytlinkEdit"]);
     //editing the current selected film with with post info passed to $dataEdit

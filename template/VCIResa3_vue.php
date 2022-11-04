@@ -62,8 +62,20 @@ require("head.php");
         ?>
 </div>
 <div class="text-center mx-auto">
+    <?php
+    //there is a return from the table location so the film is not available
+    if($checkFilmA){
+    ?>
+    <input class="bn632-hover bn26" type="submit" value="Réservez" name="Reservation" disabled></input>
+    <?php
+    }
+    else{
+    ?>
     <input class="bn632-hover bn26" type="submit" value="Réservez" name="Reservation"></input>
-    <button class="bn632-hover bn26" type="button" onclick="history.go(-1)">Annulez</button>
+    <?php
+    }
+    ?>
+    <button class="bn632-hover bn26" type="button" onclick="history.go(-2)">Annulez</button>
 </div>
 </form>
 <?php require("footer.php");?>

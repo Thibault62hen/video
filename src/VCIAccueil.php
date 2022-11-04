@@ -17,19 +17,19 @@ $cat = $rand_CAT;
 //Set the correct categorie into $inputCatFull
 if($rand_CAT == "ACT")
 {
-    $inputCatFull = "Action";
+    $inputCatFull = "ACT";
 }
 else if($rand_CAT == "ANI")
 {
-    $inputCatFull = "Animation";
+    $inputCatFull = "ANI";
 }
 else if($rand_CAT == "COM")
 {
-    $inputCatFull = "Comedie";
+    $inputCatFull = "COM";
 }
 else if($rand_CAT == "HOR")
 {
-    $inputCatFull = "Horreur";
+    $inputCatFull = "HOR";
 }
     return $inputCatFull;
 }

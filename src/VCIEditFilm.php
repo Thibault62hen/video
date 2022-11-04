@@ -18,6 +18,7 @@ function getEditFilm($dataEdit){
 }
 function editSelectedFilm($dataEdit)
 {
+        $validImg = false;
         $erreur = true;
         //store the updated movie information
         $filmIdEdit = $dataEdit["filmIdEdit"];
@@ -25,9 +26,24 @@ function editSelectedFilm($dataEdit)
         $typeFilmEdit = $dataEdit["typeFilmEdit"];
         $nomRealEdit = $dataEdit["nomRealEdit"];
         $filmdateEdit = $dataEdit["filmdateEdit"];
-        $imgEdit = $dataEdit["imgEdit"];
         $resumeEdit = $dataEdit["resumeEdit"];
         $ytlinkEdit = $dataEdit["ytlinkEdit"];
+        
+        $fileMini = $_FILES["imgEditMini"]["name"];
+        $fileMiniType = $_FILES["imgEditMini"]["type"];
+        $fileMiniTmpPath = $_FILES["imgEditMini"]["tmp_name"];
+
+        $fileCover = $_FILES["imgEditCover"]["name"];
+        $fileCoverType = $_FILES["imgEditCover"]["type"];
+        $fileCoverTmpPath = $_FILES["imgEditCover"]["tmp_name"];
+
+        $currentDirMini = getcwd();
+        $uploadDirMini = "\assets\pictures\FilmMiniatures\\".$typeFilmEdit."\\";
+        $currentDirCover = getcwd();
+        $uploadDirCover = "\assets\pictures\FilmAffiches\\".$typeFilmEdit."\\";
+
+        $uploadPathMini = $currentDirMini . $uploadDirMini . basename($fileMini);
+        $uploadPathCover = $currentDirCover . $uploadDirCover . basename($fileCover); 
         //if one or every input are empty $erreur stay false
         if(empty($titreEdit) || empty($filmdateEdit) || empty($resumeEdit)|| empty($ytlinkEdit)){
             $erreur = true;
@@ -39,7 +55,7 @@ function editSelectedFilm($dataEdit)
            // header("refresh:2;VCINewFilm_controleur.php");
         }
         //if image input is empty we do not change his value in database
-        if(empty($imgEdit) && !$erreur){
+        if(empty($fileMini || $fileCover) && !$erreur){
             $requete_editFilm = "UPDATE FILM SET CODE_TYPE_FILM = '".$typeFilmEdit."', ID_REALIS = '".$nomRealEdit."', TITRE_FILM = '".$titreEdit."'
             , ANNEE_FILM = '".$filmdateEdit."', RESUME = '".$resumeEdit."', YT_LINK = '".$ytlinkEdit."'
             WHERE ID_FILM = $filmIdEdit";
@@ -47,11 +63,13 @@ function editSelectedFilm($dataEdit)
             echo "<h3 class='InfoValidation'>$titreEdit Modifié avec succès!<h3>";
             header("refresh:2;VCINewFilm_controleur.php");
         }
-        else if(!empty($imgEdit) && !$erreur){ 
+        else if(!empty($fileMini || $fileCover) && !$erreur){ 
             $requete_editFilm = "UPDATE FILM SET CODE_TYPE_FILM = '".$typeFilmEdit."', ID_REALIS = '".$nomRealEdit."', TITRE_FILM = '".$titreEdit."'
-            , ANNEE_FILM = '".$filmdateEdit."', REF_IMAGE = '".$imgEdit."', RESUME = '".$resumeEdit."', YT_LINK = '".$ytlinkEdit."'
+            , ANNEE_FILM = '".$filmdateEdit."', REF_IMAGE = '".$fileMini."', RESUME = '".$resumeEdit."', YT_LINK = '".$ytlinkEdit."'
             WHERE ID_FILM = $filmIdEdit";
             $results_editFilm = ConnectDb2($requete_editFilm, true);
+            move_uploaded_file($fileMiniTmpPath,$uploadPathMini);
+            move_uploaded_file($fileCoverTmpPath,$uploadPathCover);
             echo "<h3 class='InfoValidation'>$titreEdit Modifié avec succès!<h3>";
             header("refresh:2;VCINewFilm_controleur.php");
         }

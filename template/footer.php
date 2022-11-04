@@ -1,21 +1,19 @@
 </main>
 <section class="footerFix">
   <footer class="bg-dark text-center text-white fixed-bottom">
-  <hr class="hrFooter">
+    <hr class="hrFooter">
+    <p class="text-white footerTitle">Video-Club © 2022</p>
     <div class=".container-fluid pt-2">
-      <section>
-        <a class="btn btn-outline-light btn-floating m-1 btnSocial" href="#!" role="button"><i
-            class="fab fa-linkedin-in"></i></a>
-
-        <a class="btn btn-outline-light btn-floating m-1 btnSocial" href="#!" role="button"><i
-            class="fab fa-github"></i></a>
-      </section>
-      <div class=".container-fluid text-center pt-2 footer2">
-        Video-Club © 2022 :
-        <a class="text-white" href=""></a>
-      </div>
+      <div class="wrapper mx-auto">
+        <ul>
+          <li class="linkedin"><a href="#"><i class="fa fa-brands fa-linkedin" aria-hidden="true"></i></a></li>
+          <li class="twitter"><a href="#"><i class="fa fa-brands fa-twitter" aria-hidden="true"></i></a></li>
+          <li class="github"><a href="#"><i class="fa fa-brands fa-github" aria-hidden="true"></i></a></li>
+        </ul>
+        </div>
     </div>
-</footer>
-  </section>
+  </footer>
+</section>
 </body>
+
 </html>

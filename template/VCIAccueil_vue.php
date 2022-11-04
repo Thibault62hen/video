@@ -17,8 +17,22 @@ require("head.php");
                 $result = str_ireplace("Mini", "", $value[0]);
                 ?>
             <div class="carousel-item">
-                <img src="../controleurs/assets/pictures/FilmAffiches/<?=htmlspecialchars($inputCatFull).'/'.htmlspecialchars($result)?>"
-                    class="d-flex img-fluid mx-auto" alt="<?=htmlspecialchars($value["titre_film"])?>">
+                <?php
+                if(!file_exists("../controleurs/assets/pictures/FilmAffiches/".$inputCatFull.'/'.$result.""))
+                {?>
+                <img class="d-flex img-fluid mx-auto imgCover" 
+                    src="https://e7.pngegg.com/pngimages/829/733/png-clipart-logo-brand-product-trademark-font-not-found-logo-brand.png"
+                    alt="Erreur image">
+                <?php
+                }
+                else{
+                ?>
+                <img class="d-flex img-fluid mx-auto imgCover" 
+                    src="../controleurs/assets/pictures/FilmAffiches/<?=htmlspecialchars($inputCatFull).'/'.htmlspecialchars($result)?>"
+                    alt="<?=htmlspecialchars($value["titre_film"])?>">
+                <?php
+                }
+                ?>
             </div>
             <?php
                 }

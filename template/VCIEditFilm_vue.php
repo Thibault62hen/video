@@ -4,7 +4,7 @@ require("headAdmin.php");
 ?>
 <div class="card-NewFilm mx-auto">
         <div class="d-flex justify-content-center">
-                <form method="post" action="">
+                <form method="post" action="" enctype="multipart/form-data">
                         <div class="text-center">
                                 <h3>Veuillez saisir les nouvelles informations du film:</h3>
                                 <hr class="hrstyle1">
@@ -17,22 +17,22 @@ require("headAdmin.php");
                                 <select class="InputStyle2 dropdownInput" name="typeFilmEdit">
                                         <option value="" disabled>Type du film</option>
                                         <option <?php
-                                        if($editFilmSelected["CODE_TYPE_FILM"] == "ACT"){
+                                        if(htmlspecialchars($editFilmSelected["CODE_TYPE_FILM"]) == "ACT"){
                                         echo "selected ";}?>value="ACT">Action</option>
                                         <option <?php
-                                        if($editFilmSelected["CODE_TYPE_FILM"] == "COM"){
+                                        if(htmlspecialchars($editFilmSelected["CODE_TYPE_FILM"]) == "COM"){
                                         echo "selected ";}?>value="COM">Comédie</option>
                                         <option <?php
-                                        if($editFilmSelected["CODE_TYPE_FILM"] == "ANI"){
+                                        if(htmlspecialchars($editFilmSelected["CODE_TYPE_FILM"]) == "ANI"){
                                         echo "selected ";}?>value="ANI">Dessin animé</option>
                                         <option <?php
-                                        if($editFilmSelected["CODE_TYPE_FILM"] == "HOR"){
+                                        if(htmlspecialchars($editFilmSelected["CODE_TYPE_FILM"]) == "HOR"){
                                         echo "selected ";}?>value="HOR">Horreur</option>
                                         <option <?php
-                                        if($editFilmSelected["CODE_TYPE_FILM"] == "POL"){
+                                        if(htmlspecialchars($editFilmSelected["CODE_TYPE_FILM"]) == "POL"){
                                         echo "selected ";}?>value="POL">Policier</option>
                                         <option <?php
-                                        if($editFilmSelected["CODE_TYPE_FILM"] == "SCF"){
+                                        if(htmlspecialchars($editFilmSelected["CODE_TYPE_FILM"]) == "SCF"){
                                         echo "selected ";}?>value="SCF">Science fiction</option>
                                 </select>
                                 </br>
@@ -64,7 +64,13 @@ require("headAdmin.php");
                                 <input class="InputStyle2" placeholder="Résumé du film" type="text" id="resumeEdit"
                                         name="resumeEdit" value="<?=htmlspecialchars($editFilmSelected["RESUME"])?>">
                                 </br>
-                                <input class="InputStyle2" type="file" id="imgEdit" name="imgEdit">
+                                <label>Miniature (ex : img1Mini.jpg)</label>
+                                </br>
+                                <input class="InputStyle2" type="file" name="imgEditMini">
+                                </br>
+                                <label>Affiche</label>
+                                </br>
+                                <input class="InputStyle2" type="file" name="imgEditCover">
                                 </br>
                                 <input class="InputStyle2" type="text" placeholder="Lien youtube bande annonce"
                                         id="ytEdit" name="ytlinkEdit"

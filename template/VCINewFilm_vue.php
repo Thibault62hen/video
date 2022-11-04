@@ -29,7 +29,7 @@ require("headAdmin.php");
                                 echo "<option value=" .htmlspecialchars($reponse_ListeReal[ID_STAR]). "
                                 >" .htmlspecialchars($reponse_ListeReal[NOM_STAR]). " " .htmlspecialchars($reponse_ListeReal[PRENOM_STAR]). "</option>";
                                 }
-                        ?>
+                                ?>
                                 </select>
                                 </br>
                                         <select class="InputStyle2 dropdownInput" name="newFilmDate">
@@ -44,7 +44,13 @@ require("headAdmin.php");
                                 <input class="InputStyle2" placeholder="Résumé du film" type="text" id="resumeInsertion"
                                         name="newResume">
                                 </br>
-                                <input class="InputStyle2" type="file" id="imgInsertion" name="newIMG">
+                                <label for="imgMiniature">Miniature (ex : img1Mini.jpg)</label>
+                                </br>
+                                <input class="InputStyle2" type="file" name="newMiniImg">
+                                </br>
+                                <label for="imgMiniature">Affiche</label>
+                                </br>
+                                <input class="InputStyle2" type="file" name="newCoverImg">
                                 </br>
                                 <input class="InputStyle2" type="text" placeholder="Lien youtube bande annonce"
                                         id="ytInsertion" name="newYTLink">
@@ -99,5 +105,6 @@ require("headAdmin.php");
                         </div>
                 </form>
         </div>
-</div <?php require("footer.php");
+</div <?php 
+require("footer.php");
 ?>

@@ -10,8 +10,15 @@ function sendMail($data){
     $mailOK = false;
     $phoneOK = false;
     $objOK = false;
+    $champsOK = false;
     $ChkObj = "/^([a-zA-ZéèÉÈç' ]{3,25}+)$/";
     $ChkPhone = "/^[0-9][0-9]{9}$/";
+    if(empty($email) || empty($phone) || empty($obj) || empty($content)){
+        $champsOK = false;
+    }
+    else{
+        $champsOK = true;
+    }
     //check if mail is valid
     if(filter_var($email, FILTER_VALIDATE_EMAIL)){
         $mailOK = true;
@@ -34,7 +41,7 @@ function sendMail($data){
         $objOK = true;
     }
     //everything's ok
-        if($mailOK && $phoneOK && $objOK == true){
+        if($mailOK && $phoneOK && $objOK && $champsOK == true){
             $to      = "t8510080@gmail.com";
             $subject =  "".$obj."";
             $message = "De :" .$email. "\nTel : " .$phone. "\n" .$content;

@@ -32,7 +32,7 @@ if (session_status() == PHP_SESSION_NONE) {
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-md">
             <div class="container-fluid containerNav">
                 <a href="../controleurs/VCIAccueil_controleur.php" class="navbar-brand">
-                    <img src="../controleurs/assets/pictures/DesignVideoClub/VCLogo.gif" width="45" alt="LogoAccueil">
+                    <img id="logoA" src="../controleurs/assets/pictures/DesignVideoClub/VCLogo.gif" width="50" alt="LogoAccueil">
                     <span class="sign">
                         <span class="fast-flicker">V</span>ideo-<span class="flicker">Cl</span>ub
                     </span>
@@ -60,7 +60,7 @@ if (session_status() == PHP_SESSION_NONE) {
                         if($_SESSION["role"]  == "admin"){
                         ?>
                         <form method="post" action="VCIMenuAdmin_controleur.php">
-                            <li id="Dcnx2" class="nav-item"><input type="submit" id="btnDeconnexion" name="disconnectBtn"
+                            <li id="Dcnx2" class="nav-item"><input type="submit" id="btnDeconnexion" name="btnAdminP"
                                     class="bn632-hover bn26" value="Panel Admin"></li>
                         </form>
                         <?php

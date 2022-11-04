@@ -41,7 +41,7 @@ require("head.php");
                 <td><?=htmlspecialchars($films["NOM_STAR"]). " " .htmlspecialchars($films["PRENOM_STAR"])?></td>
                 <td>
                     <a href="VCIResa3_controleur.php?film=<?=htmlspecialchars($films["ID_FILM"]). "&typeF=" .htmlspecialchars($films["CODE_TYPE_FILM"])?>">
-                        <img src="assets/pictures/FilmMiniatures/<?=htmlspecialchars($films["LIB_TYPE_FILM"]).'/'.htmlspecialchars($films["REF_IMAGE"])?>"
+                        <img class="imgMini" src="assets/pictures/FilmMiniatures/<?=htmlspecialchars($films["CODE_TYPE_FILM"]).'/'.htmlspecialchars($films["REF_IMAGE"])?>"
                             alt="Affiche du film <?=htmlspecialchars($films["TITRE_FILM"])?>">
                     </a>
                 </td>

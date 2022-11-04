@@ -9,14 +9,12 @@ function deleteFilm($dataDel){
     //if the selected film is reserved we display an error message and refresh to the previous page
     if($resultsCheckLocation){
         echo "<h3 class='InfoErreur'>Impossible, une location existe pour ce film<h3>";
-        header("refresh:3;VCINewFilm_controleur.php");
     }
     //selected film is not reserved so we can delete it and refresh to the previous page
     else{
         $requeteDelete = "DELETE FROM FILM WHERE ID_FILM = $delFilm";
         $results_delete = ConnectDb2($requeteDelete, true);
         echo "<h3 class='InfoValidation'>Film supprimé<h3>";
-        header("refresh:2;VCINewFilm_controleur.php");   
     }
 }
 function insertNewFilm($dataInsert)
@@ -24,6 +22,7 @@ function insertNewFilm($dataInsert)
         $validationChamps = false;
         $validationID = false;
         $validationDate = false;
+        $validIMG = false;
         $erreur = true;
         $erreur2 = true;
 
@@ -32,24 +31,41 @@ function insertNewFilm($dataInsert)
         $typeFilm = $dataInsert["typeFilm"];
         $nomReal = $dataInsert["nomReal"];
         $newFilmDate = $dataInsert["newFilmDate"];
-        $newIMG = $dataInsert["newIMG"];
+       // $newIMG = $dataInsert["newIMG"];
         $newResume = $dataInsert["newResume"];
         $newYTLink = $dataInsert["newYTLink"];
 
+        $fileMini = $_FILES["newMiniImg"]["name"];
+        $fileMiniType = $_FILES["newMiniImg"]["type"];
+        $fileMiniTmpPath = $_FILES["newMiniImg"]["tmp_name"];
 
-        $currentDirMiniature = getcwd();
-        $uploadDirMiniature = "/pictures/FilmMiniatures/'".$typeFilm."' '/' ";
-        $currentDirMFull = getcwd();
-        $uploadDirFull = "/pictures/FilmAffiches/'".$typeFilm."' '/' ";
+        $fileCover = $_FILES["newCoverImg"]["name"];
+        $fileCoverType = $_FILES["newCoverImg"]["type"];
+        $fileCoverTmpPath = $_FILES["newCoverImg"]["tmp_name"];
 
-      //  $uploadPathMiniature = $currentDirMiniature . $uploadDirMiniature . $fileName; 
-       // $uploadPathFull = $currentDirMFull . $uploadDirFull . basename($fileName); 
+        $currentDirMini = getcwd();
+        $uploadDirMini = "\assets\pictures\FilmMiniatures\\".$typeFilm."\\";
+        $currentDirCover = getcwd();
+        $uploadDirCover = "\assets\pictures\FilmAffiches\\".$typeFilm."\\";
+
+        $uploadPathMini = $currentDirMini . $uploadDirMini . basename($fileMini);
+        $uploadPathCover = $currentDirCover . $uploadDirCover . basename($fileCover); 
         //if one or every input are empty $validationChamps stay false
-        if(empty($newTitre) || empty($newFilmDate) || empty($newIMG) || empty($newResume)|| empty($newYTLink)){
+        if(empty($newTitre) || empty($newFilmDate) || empty($fileMini) || empty($fileCover) ||empty($newResume)|| empty($newYTLink)){
             $validationChamps = false;
+            echo "<h3 class='InfoErreur'>Champs incorrect<h3>";
         }
         else{
             $validationChamps = true;
+        }
+        //$ext = pathinfo($fileMini, PATHINFO_EXTENSION);
+        //$ext2 = pathinfo($fileCover, PATHINFO_EXTENSION);
+        if(checkImgType($fileMini) && checkImgType($fileCover)) { 
+            $validIMG = true;   
+        }
+        else{  
+            $validIMG = false; 
+            echo "<h3 class='InfoErreur'>Format image incorrect<h3>";     
         }
         //if film date is invalid $validationDate stay false
         if(preg_match('/^[0-9]*$/', $newFilmDate)){
@@ -59,11 +75,10 @@ function insertNewFilm($dataInsert)
             $validationDate = false;
         }
         //if both of input string and film are correct we set the first error to false
-        if($validationChamps && $validationDate == true){
+        if($validationChamps && $validationDate && $validIMG == true){
             $erreur = false;
         }
         else{
-            echo "<h3 class='InfoErreur'>Champs incorrect<h3>";
             header("refresh:2;VCINewFilm_controleur.php");
         }
         if(!$erreur){
@@ -81,8 +96,10 @@ function insertNewFilm($dataInsert)
                 if($erreur2 == false){
                     $requete_insertionFilm = "INSERT INTO film 
                     (CODE_TYPE_FILM, ID_REALIS, TITRE_FILM, ANNEE_FILM, REF_IMAGE, RESUME, YT_LINK) 
-                    VALUES ('".$typeFilm."', '".$nomReal."', '".$newTitre."', '".$newFilmDate."', '".$newIMG."', '".$newResume."', '".$newYTLink."')";
+                    VALUES ('".$typeFilm."', '".$nomReal."', '".$newTitre."', '".$newFilmDate."', '".$fileMini."', '".$newResume."', '".$newYTLink."')";
                     $results_insertionFilm = ConnectDb2($requete_insertionFilm, true);
+                    move_uploaded_file($fileMiniTmpPath,$uploadPathMini);
+                    move_uploaded_file($fileCoverTmpPath,$uploadPathCover);
                     echo "<h3 class='InfoValidation'>$newTitre Enregistrées avec succès!<h3>";
                     header("refresh:2;VCINewFilm_controleur.php");
                 }

@@ -14,10 +14,10 @@ background: linear-gradient(70deg, #0267aa, #012872, #012872);
 */
 body {
   font-family: 'Ubuntu', sans-serif;
-  background: linear-gradient(70deg, #0267aa, #012872, #000000);
+  /*background: linear-gradient(70deg, #0267aa, #012872, #000000);*/
+  background-color: #013075;
   color: #514B64;
   min-height: 100vh;
-  font-size: 18px;
   font-weight: 800;
   margin: 0;
   padding: 0;
@@ -41,6 +41,20 @@ body {
   transform: scale(1.2);
   color: rgb(64, 243, 243);
 }
+#logoA{
+  -webkit-transform: rotate(15deg) scale(1.4);
+	transform: rotate(15deg) scale(1.4);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+  -webkit-transform: rotate(0) scale(1);
+	transform: rotate(0) scale(1);
+}
+#logoA:hover{
+  -webkit-transform: rotate(15deg) scale(1.4);
+	transform: rotate(15deg) scale(1.4);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
 .InfoValidation {
   text-shadow:
     0 0 5px rgb(51, 255, 0),
@@ -52,6 +66,14 @@ body {
     0 0 5px rgb(252, 0, 0),
     0 0 10px rgb(255, 0, 0),
     0 0 14px rgba(255, 0, 0);
+}
+.imgMini{
+  max-height: 90px;
+  max-width: 90px;
+}
+.imgCover{
+  max-height: 448px;
+  max-width: 280px;
 }
 h1 {
   font-weight: bold;
@@ -137,6 +159,8 @@ input:focus {
 }
 
 p {
+  font-weight: 100;
+  font-size: 15px;
   color: rgb(255, 255, 255);
   text-shadow: 0 0 3px rgb(12, 46, 199);
 }
@@ -173,21 +197,22 @@ h3 {
     height: 1px;
     margin-top: 0;
 }
-.btnSocial:hover {
-  background-color: rgb(16, 97, 173) !important;
-  border-color: black !important;
+.btnSocial{
+  text-align: center;
+  cursor: pointer;
+  border: 2px solid #D8E2DC;
+  transition: all 0.5s ease;
 }
 footer{
+  height: 80px;
   box-shadow: 0px -2px 13px -7px rgb(64, 243, 243), 2px 5px 15px 2px rgb(64, 243, 243);
 }
 .footerFix{
-  padding-bottom: 150px;
+  padding-bottom: 80px;
 }
-.footer2 {
-  background-color: rgba(0, 0, 0, 0.2);
-  max-width: 100% !important;
+.footerTitle{
+  font-size: 14px;
 }
-
 .navbar-collapse {
   flex-grow: 0;
 }
@@ -212,7 +237,8 @@ footer{
   position: absolute;
   height: 3px;
   width: 100%;
-  background: rgb(16, 110, 173);
+  background: rgb(235, 238, 240);
+  box-shadow: 0 0 8px rgb(64, 243, 243);
   border-radius: 1px;
   opacity: 1;
   left: 0;
@@ -265,7 +291,7 @@ footer{
 
 /* Color of 3 lines */
 .navbar-toggler.collapsed .toggler-icon {
-  background: white;
+  background: rgb(233, 233, 233);
 }
 
 @media only screen and (max-width: 992px) {
@@ -337,10 +363,6 @@ h5 {
   color: rgb(252, 252, 252);
   text-shadow: 0 0 8px rgb(64, 243, 243);
   text-align: center;
-}
-
-#carouselExampleLight {
-  position: relative;
 }
 
 /*catalogue
@@ -481,4 +503,64 @@ textarea{
 }
 .inputLocation:focus {
   box-shadow: 0px 0px 0px 0px rgba(249, 249, 250, 0);
+}
+/* footer social buttons*/
+.wrapper {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.wrapper ul {
+  list-style: none;
+}
+.wrapper ul li {
+  margin-top: 25px!important;
+  width: 38px;
+  height: 38px;
+  margin-right: 22px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid #D8E2DC;
+  float: left;
+  transition: all 0.5s ease;
+}
+.wrapper ul li .fa {
+  color: #D8E2DC;
+  margin-top: 8px;
+  transition: all 0.5s ease;
+}
+.wrapper ul li:hover.linkedin{
+  border: 2px solid #3b5998;
+  box-shadow: 0 0 15px #3b5998;
+  transition: all 0.5s ease;
+}
+.wrapper ul li:hover .fa-linkedin{
+  color: #3b5998;
+  text-shadow: 0 0 15px #3b5998;
+  transition: all 0.5s ease;
+}
+.wrapper ul li:hover.twitter {
+  border: 2px solid #00aced;
+  box-shadow: 0 0 15px #00aced;
+  transition: all 0.5s ease;
+}
+.wrapper ul li:hover .fa-twitter {
+  color: #00aced;
+  text-shadow: 0 0 15px #00aced;
+  transition: all 0.5s ease;
+} 
+.wrapper ul li:hover.github {
+  border: 2px solid #4dc247;
+  box-shadow: 0 0 15px #4dc247;
+  transition: all 0.5s ease;
+}
+.wrapper ul li:hover .fa-github {
+  color: #4dc247;
+  text-shadow: 0 0 15px #4dc247;
+  transition: all 0.5s ease;
+}
+#backAdm:hover{
+  color: #00aced;
 }
